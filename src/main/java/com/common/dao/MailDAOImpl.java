@@ -22,7 +22,7 @@ import com.common.model.Mail;
  * @author Gaspar Rajoy - Flux IT
 
  **/
-@Repository("mailDAO")
+@Repository("mailService")
 @Transactional
 public class MailDAOImpl implements MailDAO {
 

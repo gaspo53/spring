@@ -17,6 +17,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.common.dao.PersonDAO;
 
+
 /**
 
  * @author Gaspar Rajoy - Flux IT
@@ -24,15 +25,15 @@ import com.common.dao.PersonDAO;
  **/
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = { "classpath*:**/mvc-dispatcher-serlvet.xml", 
+@ContextConfiguration(locations = { 
+		"classpath*:**/mvc-dispatcher-serlvet.xml", 
 		"classpath*:**/db-config.xml", 
 		"classpath*:**/person-service.xml",
 		"classpath*:**/mail-servlet.xml", 
 		"classpath*:**/jms-setup.xml", 
 		"classpath*:**/web-services-definition.xml", 
-		"classpath*:**/web-services-clients-definition.xml",
+		"classpath*:**/web-services-clients-definition.xml"})
 
-})
 public class PersonDAOTest {
 
 	@Autowired

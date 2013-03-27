@@ -19,6 +19,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import com.common.model.Person;
 import com.common.web.service.PersonWebService;
 
+
 /**
  * 
  * @author Gaspar Rajoy - Flux IT
@@ -31,9 +32,7 @@ import com.common.web.service.PersonWebService;
 									"classpath*:**/mail-servlet.xml", 
 									"classpath*:**/jms-setup.xml", 
 									"classpath*:**/web-services-definition.xml", 
-									"classpath*:**/web-services-clients-definition.xml",
-
-							})
+									"classpath*:**/web-services-clients-definition.xml"	})
 
 public class PersonDetailWebServiceTest {
 
@@ -52,10 +51,7 @@ public class PersonDetailWebServiceTest {
 	@Test
 	public void personDetailClientTest() {
 
-		Person person = personDetailService.personDetail("10");
-		
-		System.out.println(person);
-		
+		Person person = personDetailService.personDetail("3");
 		
 		assertEquals("Nombre de usuario","Gaspar",person.getName());
 	}

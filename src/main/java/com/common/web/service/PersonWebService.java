@@ -13,7 +13,6 @@ import javax.jws.WebService;
 
 import org.springframework.stereotype.Service;
 
-import com.common.exception.WebServiceException;
 import com.common.model.Person;
 
 /**
@@ -26,5 +25,5 @@ import com.common.model.Person;
 public interface PersonWebService {
  
 	@WebMethod
-	public Person personDetail(@WebParam(name="personId") String personId) throws WebServiceException;
+	public Person personDetail(@WebParam(name="personId") String personId);
 }

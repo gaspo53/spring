@@ -18,8 +18,10 @@ import java.io.Serializable;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.springframework.transaction.annotation.Transactional;
 
 @SuppressWarnings("unchecked")
+@Transactional
 public class GenericDAOImpl<T, ID extends Serializable> implements GenericDAO<T, ID> {
 
 	private SessionFactory sessionFactory;

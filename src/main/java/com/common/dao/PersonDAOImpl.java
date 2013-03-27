@@ -18,7 +18,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.common.model.Person;
 
-@Repository("personDAO")
+@Repository("personService")
 @Transactional
 public class PersonDAOImpl implements PersonDAO{
 	

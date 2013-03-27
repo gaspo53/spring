@@ -9,6 +9,7 @@ package com.common.audit;
 
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
 
@@ -16,6 +17,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
  **/
 
+@Transactional
 public class LogEntryDAOImpl extends GenericDAOImpl<LogEntry, Long> implements LogEntryDAO {
 
 	@Autowired

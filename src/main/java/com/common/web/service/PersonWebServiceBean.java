@@ -7,15 +7,12 @@
  */
 package com.common.web.service;
 
-import java.util.Date;
-
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
 import javax.jws.WebService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.common.exception.WebServiceException;
 import com.common.model.Person;
 import com.common.service.PersonService;
 
@@ -43,16 +40,17 @@ public void setPersonService(PersonService personService) {
 
  @Override
  @WebMethod
- public Person personDetail(@WebParam(name="personId") String personId) throws WebServiceException {
+ public Person personDetail(@WebParam(name="personId") String personId) {
 	 
-	 if (Integer.parseInt(personId) < 10){
+//	 if (Integer.parseInt(personId) < 10){
 	 
 		  Person person = personService.getPerson(personId);
-		
+		  System.out.println(person);
 		  return person;
-	 }else{
-		 throw new WebServiceException();
-	 }
+//	 }
+//	 else{
+//		 throw new WebServiceException();
+//	 }
  }
 
 }

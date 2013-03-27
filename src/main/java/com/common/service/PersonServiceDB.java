@@ -8,16 +8,17 @@
 package com.common.service;
 
 import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.common.dao.PersonDAO;
 import com.common.exception.PersonException;
 import com.common.model.Person;
 
 @Service
-@Repository("personService")
+@Transactional
 public class PersonServiceDB implements PersonService {
 
 	@Autowired
