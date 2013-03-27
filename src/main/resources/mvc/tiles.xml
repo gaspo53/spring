@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+
+<tiles-definitions>
+    <definition name="base.definition" template="/WEB-INF/pages/tiles/template.jsp">
+        <put-attribute name="meta" value="/WEB-INF/pages/tiles/meta.jsp" />
+        <put-attribute name="head" value="/WEB-INF/pages/tiles/head.jsp" />
+        <put-attribute name="navbar" value="/WEB-INF/pages/tiles/navbar.jsp" />
+        <put-attribute name="sidebar" value="/WEB-INF/pages/tiles/sidebar.jsp" />
+        <put-attribute name="body" value="" />
+        <put-attribute name="flash_messages" value="/WEB-INF/pages/tiles/flash_messages.jsp" />
+        <put-attribute name="footer" value="/WEB-INF/pages/tiles/footer.jsp" />
+        <put-attribute name="page_title" value="global.page_title" type="string" cascade="true"/>
+    </definition>
+ 
+
+    <definition name="user.new" extends="base.definition">
+      <put-attribute name="body" value="/WEB-INF/pages/user.new.jsp" />
+      <put-attribute name="menu_item_id" value="menu_item_person" type="string" cascade="true"/>
+      <put-attribute name="subsection_legend" value="layout.section.new_user" type="string" cascade="true"/>
+    </definition>
+
+    <definition name="general.error" extends="base.definition">
+        <put-attribute name="subsection_legend" value="global.general.error.title" type="string" cascade="true"/>
+    </definition>
+
+    <definition name="user.show" extends="base.definition">
+      <put-attribute name="section_title" value="pages.userlist" type="string"/>
+      <put-attribute name="body" value="/WEB-INF/pages/user.show.jsp" />
+      <put-attribute name="menu_item_id" value="menu_item_person" type="string" cascade="true"/>
+      <put-attribute name="add_action_title" value="general.actions.add" type="string" cascade="true"/>
+    </definition>
+
+    <definition name="student.new" extends="user.new">
+      <put-attribute name="menu_item_id" value="menu_item_student" type="string" cascade="true"/>
+    </definition>
+
+    <definition name="student.show" extends="user.show">
+      <put-attribute name="section_title" value="pages.studentlist" type="string"/>
+      <put-attribute name="menu_item_id" value="menu_item_student" type="string" cascade="true"/>
+    </definition>
+
+    <definition name="superadmin.new" extends="user.new">
+      <put-attribute name="menu_item_id" value="menu_item_superadmin" type="string" cascade="true"/>
+    </definition>
+
+    <definition name="superadmin.show" extends="user.show">
+      <put-attribute name="section_title" value="pages.superadminlist" type="string"/>
+      <put-attribute name="menu_item_id" value="menu_item_superadmin" type="string" cascade="true"/>
+    </definition>
+
+    <definition name="mail.list" extends="base.definition">
+      <put-attribute name="body" value="/WEB-INF/pages/mail.list.jsp" />
+      <put-attribute name="section_title" value="pages.mail.list" type="string"/>
+      <put-attribute name="add_action_title" value="general.actions.add" type="string" cascade="true"/>
+      <put-attribute name="sidebar_item_id" value="layout.sidebar.section_1.1" type="string" cascade="true"/>
+    </definition>
+
+    <definition name="mail.new" extends="base.definition">
+      <put-attribute name="body" value="/WEB-INF/pages/mail.new.jsp" />
+      <put-attribute name="section_title" value="pages.mail.new" type="string"/>
+    </definition>
+
+
+    <definition name="login" template="/WEB-INF/pages/login.jsp">
+        <put-attribute name="meta" value="/WEB-INF/pages/tiles/meta.jsp" />
+        <put-attribute name="head" value="/WEB-INF/pages/tiles/head.jsp" />
+        <put-attribute name="body" value="/WEB-INF/pages/login.jsp" />
+        <put-attribute name="section_title" value="general.login.section_title" type="string"/>
+        <put-attribute name="submit_button_label" value="form.general.submit.title" type="string"/>
+    </definition>
+ 
+
+</tiles-definitions>

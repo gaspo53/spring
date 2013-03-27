@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+    "-//Hibernate/Hibernate Configuration DTD//EN"
+    "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+ 
+<hibernate-configuration>
+    <session-factory>
+
+        <mapping class="com.common.model.Person" />
+        
+        <event type="post-insert">
+          <listener class="com.common.audit.AuditListener"/>
+        </event>
+
+   </session-factory>
+         
+</hibernate-configuration>
+
+
+
+<!--     <property name="eventListeners">
+      <map>
+        <entry key="save-update">
+          <bean class="com.common.audit.AuditListener" />
+        </entry>
+        <entry key="post-delete">
+          <bean class="com.common.audit.AuditListener" />
+        </entry>
+        <entry key="post-insert">
+          <bean class="com.common.audit.AuditListener" />
+        </entry>
+        <entry key="post-update">
+          <bean class="com.common.audit.AuditListener" />
+        </entry>
+      </map>
+    </property> -->

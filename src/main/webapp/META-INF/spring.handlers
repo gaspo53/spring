@@ -1,0 +1,2 @@
+http\://cxf.apache.org/ 
+jaxws=org.apache.cxf.jaxws.spring.NamespaceHandler

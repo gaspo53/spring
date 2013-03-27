@@ -1,0 +1,84 @@
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+	xmlns:beans="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+                    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+                    http://www.springframework.org/schema/security 
+                    http://www.springframework.org/schema/security/spring-security-3.1.xsd">
+
+	<!-- Beans usados por authentication-manager -->
+	<beans:bean id="encoder"
+		class="org.springframework.security.crypto.password.StandardPasswordEncoder" />
+
+	<beans:bean id="databaseAuthManager"
+		class="org.springframework.security.core.userdetails.jdbc.JdbcDaoImpl">
+		<beans:property name="dataSource" ref="dataSource" />
+	</beans:bean>
+	
+	
+	<beans:bean id="authSuccessHandler" class="com.common.auth.AuthenticationSuccessHandler"/>
+	
+	<!-- /Beans -->
+
+
+	<http pattern="/css/**" security="none" />
+	<http pattern="/img/**" security="none" />
+	<http pattern="/js/**" security="none" />
+
+	<http use-expressions="true">
+    <intercept-url pattern="/webServices/**" access="permitAll" />
+		<intercept-url pattern="/login*" access="permitAll" />
+		<intercept-url pattern="/index.jsp" access="permitAll" />
+		<intercept-url pattern="/student/**" access="permitAll" />
+    <intercept-url pattern="/superadmin/**" access="hasRole('supervisor')" />
+    <intercept-url pattern="/mail/**" access="hasRole('supervisor')" />
+		<intercept-url pattern="/secure/extreme/**" access="hasRole('supervisor')" />
+    <intercept-url pattern="/secure/**" access="hasRole('teller')" />
+		<intercept-url pattern="/person/**" access="isAuthenticated()" />
+		<intercept-url pattern="/posts.html"
+			access="hasAnyRole('supervisor','teller')" />
+		<intercept-url pattern="/**" access="denyAll" />
+
+		<form-login login-page="/login" 
+		            default-target-url="/person"
+			          authentication-failure-url="/loginfailed" 
+			          always-use-default-target="false"
+			          authentication-success-handler-ref="authSuccessHandler"/> 
+
+		<logout />
+	</http>
+
+	<!-- Authentication providers -->
+
+	<!-- <ldap-server url="ldap://192.168.0.55:389/dc=fluxit,dc=com,dc=ar"
+		           manager-dn="uid=admin,ou=system" 
+		           manager-password="infra123" 
+  /> -->
+  
+  <ldap-server ldif="classpath:auth/users.ldif"  root="o=mojo"/>
+
+	<authentication-manager>
+
+		<authentication-provider user-service-ref='databaseAuthManager'>
+			<!-- <password-encoder ref="encoder" /> -->
+		</authentication-provider>
+
+		<authentication-provider>
+			<!-- <password-encoder ref="encoder" /> -->
+			<user-service id="textFileAuthManager" properties="classpath:auth/users.properties" />
+		</authentication-provider>
+
+		<ldap-authentication-provider
+			user-search-filter="(uid={0})" 
+			user-search-base="ou=users"
+			group-search-filter="(uniqueMember={0})" 
+			group-search-base="ou=groups"
+			group-role-attribute="cn" 
+			role-prefix="ROLE_">
+		</ldap-authentication-provider>
+
+
+	</authentication-manager>
+
+	<!-- /AuthProviders -->
+
+</beans:beans>   

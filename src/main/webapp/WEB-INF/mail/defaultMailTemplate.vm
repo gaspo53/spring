@@ -1,0 +1,11 @@
+# IMPORTANTE
+<html>
+<body>
+<h3>${mail.body}</h3>
+
+<div>
+   Te llegaron las cosas Apple que te compraste!!!!! <a href="mailto:${mail.toName}">${mail.toName}</a>.
+</div>
+</body>
+
+</html>
