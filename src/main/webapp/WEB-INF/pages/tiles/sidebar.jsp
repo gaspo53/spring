@@ -6,11 +6,11 @@
 		<ul class="nav nav-list">
 			<li class="nav-header"><spring:message
 					code="layout.sidebar.section_1.title"></spring:message></li>
-			<li class="" id="layout.sidebar.section_1.1"><a href="/mail"><spring:message
+			<li class="" id="layout.sidebar.section_1.1"><a href="${contextPath}/mail"><spring:message
 						code="layout.sidebar.section_1.1"></spring:message></a></li>
-			<li id="layout.sidebar.section_1.2"><a href="/person/report/pdf"><spring:message
+			<li id="layout.sidebar.section_1.2"><a href="${contextPath}/person/report/pdf"><spring:message
 						code="layout.sidebar.section_1.2"></spring:message></a></li>
-			<li id="layout.sidebar.section_1.3"><a href="/person/report/xls"><spring:message
+			<li id="layout.sidebar.section_1.3"><a href="${contextPath}/person/report/xls"><spring:message
 						code="layout.sidebar.section_1.3"></spring:message></a></li>
 			<li id="layout.sidebar.section_1.4"><a href="#"><spring:message
 						code="layout.sidebar.section_1.4"></spring:message></a></li>

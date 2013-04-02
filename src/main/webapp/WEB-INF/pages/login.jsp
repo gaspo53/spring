@@ -8,7 +8,8 @@
      <tiles:insertAttribute name="submit_button_label" ignore="true"/> 
 </cw:set>
 
-<cw:set var="staticPath"  value="/" scope="application" /><%-- Static resources Path --%>
+<cw:set var="staticPath"  value="" scope="application" /><%-- Static resources Path --%>
+<cw:set var="contextPath"  value="${pageContext.request.contextPath}" scope="application" /><%-- Static resources Path --%>
 
 <!--[if IE 8]>         <html class="no-js lt-ie9" lang="en"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
@@ -16,7 +17,7 @@
 <html>
   <head>
     <tiles:insertAttribute name="meta"/>
-    <link href="${staticPath}css/signin-fix.css" rel="stylesheet">
+    <link href="${contextPath}/${staticPath}css/signin-fix.css" rel="stylesheet">
     <tiles:insertAttribute name="head"/>
   </head>
   <body>

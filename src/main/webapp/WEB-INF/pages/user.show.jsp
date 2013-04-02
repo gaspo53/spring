@@ -16,16 +16,16 @@
 		<tbody>
 			<cw:forEach items="${persons}" var="person">
 				<tr>
-					<td>${person.name}</td>
-          <td>${person.last_name}</td>
-          <td>${person.city}</td>
-          <td>${person.email}</td>
+					  <td>${person.name}</td>
+			          <td>${person.last_name}</td>
+			          <td>${person.city}</td>
+			          <td>${person.email}</td>
 					<td>
-					  <a class="btn btn-small" href="/person/update/${person.id}">
+					  <a class="btn btn-small" href="${contextPath}/person/update/${person.id}">
                 <spring:message code="form.general.edit.title"></spring:message>
             </a>
 	          
-	          <a class="btn btn-small btn-danger" href="/person/delete/${person.id}">
+	          <a class="btn btn-small btn-danger" href="${contextPath}/person/delete/${person.id}">
                 <spring:message code="form.general.delete.title"></spring:message>
             </a>
 				  </td>
@@ -39,7 +39,7 @@
 </cw:otherwise>	
 </cw:choose>
 
-<a href="/person/new">
+<a href="${contextPath}/person/new">
 		<cw:set var="add_action_title"> 
 		    <tiles:insertAttribute name="add_action_title" ignore="true"/> 
 		</cw:set>

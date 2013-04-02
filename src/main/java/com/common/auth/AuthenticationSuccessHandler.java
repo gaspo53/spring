@@ -32,7 +32,7 @@ public class AuthenticationSuccessHandler extends SavedRequestAwareAuthenticatio
 	    	logger.warn(authentication.getName() + ": " + roles.toString());
 	    	
 	    	try {
-				response.sendRedirect("/person");
+				response.sendRedirect(request.getContextPath() + "/person");
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

@@ -21,7 +21,7 @@ import com.common.model.Person;
 
  **/
 @Service
-@WebService(name="personWebService")
+@WebService(name="personDetailService")
 public interface PersonWebService {
  
 	@WebMethod

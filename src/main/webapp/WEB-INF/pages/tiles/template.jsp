@@ -2,7 +2,8 @@
 
 <!DOCTYPE html> 
 
-<cw:set var="staticPath"  value="/" scope="application" /><%-- Static resources Path --%>
+<cw:set var="staticPath"  value="" scope="application" /><%-- Static resources Path --%>
+<cw:set var="contextPath"  value="${pageContext.request.contextPath}" scope="application" /><%-- Static resources Path --%>
 
 <!--[if IE 8]>         <html class="no-js lt-ie9" lang="en"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
@@ -41,8 +42,9 @@
     <!-- Le javascript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="${staticPath}js/jquery.min.js"></script>
-    <script src="${staticPath}js/bootstrap.min.js"></script>
+    
+    <script src="${contextPath}/${staticPath}/js/jquery.min.js"></script>
+    <script src="${contextPath}/${staticPath}/js/bootstrap.min.js"></script>
     
   </body>
 </html>

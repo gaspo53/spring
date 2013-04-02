@@ -9,7 +9,7 @@
   
 		<jaxws:client id="personDetailServiceClient"
 		                  serviceClass="com.common.web.service.PersonWebService"
-		                  address="http://localhost:8080/webServices/PersonDetailService" />
+		                  address="http://localhost:8080/spring/webServices/PersonDetailService" />
                   
     
   

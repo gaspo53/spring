@@ -1,6 +1,6 @@
 <%@ include file="./taglibs.jsp"%>
 
-<form:form modelAttribute="person" class="form-horizontal" method="post" action="/person">
+<form:form modelAttribute="person" class="form-horizontal" method="post" action="${contextPath}/person">
 		<input type="hidden" name="id" id="id" value="${person.id}"/>
 
 		<label><spring:message code="form.user.name"></spring:message></label> 

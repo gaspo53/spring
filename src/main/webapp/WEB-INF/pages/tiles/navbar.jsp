@@ -11,20 +11,20 @@
           <a class="brand" href="#"><tiles:insertAttribute name="title" ignore="true" defaultValue="SpringMVC"/></a>
           <div class="nav-collapse collapse">
             <p class="navbar-text pull-right">
-              <a href="/j_spring_security_logout" class="navbar-link">
+              <a href="${contextPath}/j_spring_security_logout" class="navbar-link">
                   <spring:message code="layout.menu.logout_title"></spring:message>
               </a>
             </p>
             
             <ul class="nav">
               <li id="menu_item_person">
-                  <a href="/person"><spring:message code="layout.menu.person_title"></spring:message></a>
+                  <a href="${contextPath}/person"><spring:message code="layout.menu.person_title"></spring:message></a>
               </li>
               <li id="menu_item_student">
-                  <a href="/student"><spring:message code="layout.menu.student_title"></spring:message></a>
+                  <a href="${contextPath}/student"><spring:message code="layout.menu.student_title"></spring:message></a>
               </li>
               <li id="menu_item_superadmin">
-                  <a href="/superadmin"><spring:message code="layout.menu.superadmin_title"></spring:message></a>
+                  <a href="${contextPath}/superadmin"><spring:message code="layout.menu.superadmin_title"></spring:message></a>
               </li>
             </ul>
           </div><!--/.nav-collapse -->

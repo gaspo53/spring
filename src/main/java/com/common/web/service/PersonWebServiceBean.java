@@ -17,40 +17,37 @@ import com.common.model.Person;
 import com.common.service.PersonService;
 
 /**
-
+ * 
  * @author Gaspar Rajoy - Flux IT
-
  **/
 @WebService(endpointInterface = "com.common.web.service.PersonWebService")
 public class PersonWebServiceBean implements PersonWebService {
 
- @Autowired
- private PersonService personService;
- 
- 
- 
- /**
- * @param personService the personService to set
- */
-public void setPersonService(PersonService personService) {
-	this.personService = personService;
-}
+	@Autowired
+	private PersonService personService;
 
+	/**
+	 * @param personService
+	 *            the personService to set
+	 */
+	public void setPersonService(PersonService personService) {
+		this.personService = personService;
+	}
 
+	@Override
+	@WebMethod
+	public Person personDetail(@WebParam(name = "personId")
+	String personId) {
 
- @Override
- @WebMethod
- public Person personDetail(@WebParam(name="personId") String personId) {
-	 
-//	 if (Integer.parseInt(personId) < 10){
-	 
-		  Person person = personService.getPerson(personId);
-		  System.out.println(person);
-		  return person;
-//	 }
-//	 else{
-//		 throw new WebServiceException();
-//	 }
- }
+		// if (Integer.parseInt(personId) < 10){
+
+		Person person = personService.getPerson(personId);
+		System.out.println(person);
+		return person;
+		// }
+		// else{
+		// throw new WebServiceException();
+		// }
+	}
 
 }

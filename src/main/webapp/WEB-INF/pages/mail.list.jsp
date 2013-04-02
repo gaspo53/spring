@@ -19,11 +19,11 @@
           <td>${mail.subject}</td>
           <td>${mail.createdAt}</td>
 					<td>
-					  <a class="btn btn-small" href="/mail/update/${mail.id}">
+					  <a class="btn btn-small" href="${contextPath}/mail/update/${mail.id}">
                 <spring:message code="form.general.edit.title"></spring:message>
             </a>
 	          
-	          <a class="btn btn-small btn-danger" href="/mail/delete/${mail.id}">
+	          <a class="btn btn-small btn-danger" href="${contextPath}/mail/delete/${mail.id}">
                 <spring:message code="form.general.delete.title"></spring:message>
             </a>
 				  </td>
@@ -37,7 +37,7 @@
 </cw:otherwise>	
 </cw:choose>
 
-<a href="/mail/new">
+<a href="${contextPath}/mail/new">
 		<cw:set var="add_action_title"> 
 		    <tiles:insertAttribute name="add_action_title" ignore="true"/> 
 		</cw:set>

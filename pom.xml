@@ -3,14 +3,14 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.common</groupId>
-	<artifactId>spring-mvc</artifactId>
+	<artifactId>spring</artifactId>
 	<packaging>war</packaging>
 	<version>1.0-SNAPSHOT</version>
 	<name>SpringMVC Maven Webapp</name>
 	<url>http://maven.apache.org</url>
 
 	<properties>
-		<spring.version>3.1.0.RELEASE</spring.version>
+		<spring.version>3.1.1.RELEASE</spring.version>
 		<spring.data.jpa.version>1.1.0.M1</spring.data.jpa.version>
 		<spring.data.commons.core>1.4.1.RELEASE</spring.data.commons.core>
 		<slf4j.version>1.6.4</slf4j.version>
@@ -33,6 +33,7 @@
 		<apache.activemq>5.7.0</apache.activemq>
 		<apache.cxf>2.7.3</apache.cxf>
 		<jaxws.spring>1.8</jaxws.spring>
+		<jackson.version>1.9.12</jackson.version>
 	</properties>
 
 	<dependencies>
@@ -119,7 +120,7 @@
 		<dependency>
 			<groupId>org.codehaus.jackson</groupId>
 			<artifactId>jackson-jaxrs</artifactId>
-			<version>1.6.3</version>
+			<version>${jackson.version}</version>
 			<type>jar</type>
 			<scope>compile</scope>
 		</dependency>
@@ -418,7 +419,7 @@
 
 
 	<build>
-		<finalName>spring-mvc</finalName>
+		<finalName>spring</finalName>
 		<plugins>
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
