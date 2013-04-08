@@ -9,16 +9,16 @@
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
 		<param-value>
-        classpath:spring/mvc-dispatcher-servlet.xml
-        classpath:spring/security-app-context.xml
-        classpath:spring/person-service.xml
-        classpath:spring/mail-servlet.xml
-        classpath:mvc/jasper-views.xml
-        classpath:spring/quartz-config.xml
-        classpath:spring/jms-setup.xml
-        classpath:spring/web-services-definition.xml
-        classpath:spring/web-services-clients-definition.xml
-    </param-value>
+	        classpath:spring/mvc-dispatcher-servlet.xml
+	        classpath:spring/security-app-context.xml
+	        classpath:spring/person-service.xml
+	        classpath:spring/mail-servlet.xml
+	        classpath:mvc/jasper-views.xml
+	        classpath:spring/quartz-config.xml
+	        classpath:spring/jms-setup.xml
+	        classpath:spring/web-services-definition.xml
+	        classpath:spring/web-services-clients-definition.xml
+        </param-value>
 	</context-param>
 
 

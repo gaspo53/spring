@@ -20,7 +20,7 @@ import com.common.service.PersonService;
  * 
  * @author Gaspar Rajoy - Flux IT
  **/
-@WebService(endpointInterface = "com.common.web.service.PersonWebService")
+@WebService(endpointInterface = "com.common.web.service.PersonWebService", serviceName="personService")
 public class PersonWebServiceBean implements PersonWebService {
 
 	@Autowired

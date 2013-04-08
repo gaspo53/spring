@@ -13,10 +13,11 @@
 		class="org.springframework.security.core.userdetails.jdbc.JdbcDaoImpl">
 		<beans:property name="dataSource" ref="dataSource" />
 	</beans:bean>
-	
-	
-	<beans:bean id="authSuccessHandler" class="com.common.auth.AuthenticationSuccessHandler"/>
-	
+
+
+	<beans:bean id="authSuccessHandler"
+		class="com.common.auth.AuthenticationSuccessHandler" />
+
 	<!-- /Beans -->
 
 
@@ -25,36 +26,32 @@
 	<http pattern="/js/**" security="none" />
 
 	<http use-expressions="true">
-    <intercept-url pattern="/webServices/**" access="permitAll" />
-		<intercept-url pattern="/login*" access="permitAll" />
+        <intercept-url pattern="/services/**" access="permitAll" />
+        <intercept-url pattern="/login*" access="permitAll" />
 		<intercept-url pattern="/index.jsp" access="permitAll" />
 		<intercept-url pattern="/student/**" access="permitAll" />
-    <intercept-url pattern="/superadmin/**" access="hasRole('supervisor')" />
-    <intercept-url pattern="/mail/**" access="hasRole('supervisor')" />
+		<intercept-url pattern="/superadmin/**" access="hasRole('supervisor')" />
+		<intercept-url pattern="/mail/**" access="hasRole('supervisor')" />
 		<intercept-url pattern="/secure/extreme/**" access="hasRole('supervisor')" />
-    <intercept-url pattern="/secure/**" access="hasRole('teller')" />
+		<intercept-url pattern="/secure/**" access="hasRole('teller')" />
 		<intercept-url pattern="/person/**" access="isAuthenticated()" />
 		<intercept-url pattern="/posts.html"
 			access="hasAnyRole('supervisor','teller')" />
 		<intercept-url pattern="/**" access="denyAll" />
 
-		<form-login login-page="/login" 
-		            default-target-url="/person"
-			          authentication-failure-url="/loginfailed" 
-			          always-use-default-target="false"
-			          authentication-success-handler-ref="authSuccessHandler"/> 
+		<form-login login-page="/login" default-target-url="/person"
+			authentication-failure-url="/loginfailed" always-use-default-target="false"
+			authentication-success-handler-ref="authSuccessHandler" />
 
 		<logout />
 	</http>
 
 	<!-- Authentication providers -->
 
-	<!-- <ldap-server url="ldap://192.168.0.55:389/dc=fluxit,dc=com,dc=ar"
-		           manager-dn="uid=admin,ou=system" 
-		           manager-password="infra123" 
-  /> -->
-  
-  <ldap-server ldif="classpath:auth/users.ldif"  root="o=mojo"/>
+	<!-- <ldap-server url="ldap://192.168.0.55:389/dc=fluxit,dc=com,dc=ar" manager-dn="uid=admin,ou=system" 
+		manager-password="infra123" /> -->
+
+	<ldap-server ldif="classpath:auth/users.ldif" root="o=mojo" />
 
 	<authentication-manager>
 
@@ -68,12 +65,9 @@
 		</authentication-provider>
 
 		<ldap-authentication-provider
-			user-search-filter="(uid={0})" 
-			user-search-base="ou=users"
-			group-search-filter="(uniqueMember={0})" 
-			group-search-base="ou=groups"
-			group-role-attribute="cn" 
-			role-prefix="ROLE_">
+			user-search-filter="(uid={0})" user-search-base="ou=users"
+			group-search-filter="(uniqueMember={0})" group-search-base="ou=groups"
+			group-role-attribute="cn" role-prefix="ROLE_">
 		</ldap-authentication-provider>
 
 
