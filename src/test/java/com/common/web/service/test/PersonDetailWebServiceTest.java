@@ -27,8 +27,7 @@ import com.common.web.service.PersonWebService;
  **/
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = {  
-									"classpath:spring/web-services-clients-definition.xml"	})
+@ContextConfiguration(locations = { "classpath:spring/web-services-clients-definition.xml"	})
 
 @Service
 @Qualifier("personDetailWebServiceTest")
