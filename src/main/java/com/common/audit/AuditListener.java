@@ -18,21 +18,14 @@ import java.util.Date;
 import org.hibernate.HibernateException;
 import org.hibernate.Transaction;
 import org.hibernate.event.PostDeleteEvent;
-import org.hibernate.event.PostDeleteEventListener;
 import org.hibernate.event.PostInsertEvent;
-import org.hibernate.event.PostInsertEventListener;
 import org.hibernate.event.PostUpdateEvent;
-import org.hibernate.event.PostUpdateEventListener;
 import org.hibernate.event.SaveOrUpdateEvent;
-import org.hibernate.event.SaveOrUpdateEventListener;
 import org.hibernate.event.def.DefaultSaveOrUpdateEventListener;
 import org.hibernate.type.Type;
 import org.springframework.beans.factory.annotation.Autowired;
 
 public class AuditListener extends DefaultSaveOrUpdateEventListener {
-
-	private int updates;
-	private int creates;
 
 	@Autowired
 	private LogEntryDAO logEntryDAO;
@@ -54,7 +47,6 @@ public class AuditListener extends DefaultSaveOrUpdateEventListener {
 		System.out.println("ENTRO A ONFLUSHDIRTY");
 
 		if (entity instanceof Auditable) {
-			updates++;
 			for (int i = 0; i < propertyNames.length; i++) {
 				if ("lastUpdateTimestamp".equals(propertyNames[i])) {
 					currentState[i] = new Date();
@@ -68,7 +60,6 @@ public class AuditListener extends DefaultSaveOrUpdateEventListener {
 	public boolean onSave(Object entity, Serializable id, Object[] state, String[] propertyNames, Type[] types) {
 		System.out.println("ENTRO A ONSAVE");
 		if (entity instanceof Auditable) {
-			creates++;
 			for (int i = 0; i < propertyNames.length; i++) {
 				if ("createTimestamp".equals(propertyNames[i])) {
 					state[i] = new Date();
@@ -83,8 +74,6 @@ public class AuditListener extends DefaultSaveOrUpdateEventListener {
 		if (tx.wasCommitted()) {
 
 		}
-		updates = 0;
-		creates = 0;
 	}
 
 	/*

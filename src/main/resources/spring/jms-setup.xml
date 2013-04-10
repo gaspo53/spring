@@ -33,10 +33,6 @@
       <property name="messageListener" ref="messageListenerDefault" />
   </bean>  
 	
-	
-	
-	
-	
 	<bean id="messageListener" class="org.springframework.jms.listener.adapter.MessageListenerAdapter">
 	    <constructor-arg>
 	        <bean class="com.common.jms.TextMessageDelegateImpl"/>

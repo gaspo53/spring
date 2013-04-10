@@ -14,9 +14,9 @@
  
 	<tx:annotation-driven transaction-manager="transactionManager" />
 
-  <bean id="logEntryDAO" class="com.common.audit.LogEntryDAOImpl"></bean>
-  <bean id="auditListener" class="com.common.audit.AuditListener" />
-	
+	 <bean id="logEntryDAO" name="logEntryDAO" class="com.common.audit.LogEntryDAOImpl" />
+	 <bean id="auditListener" name="auditListener" class="com.common.audit.AuditListener" lazy-init="true"/>
+
 	<bean id="dataSource"
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
@@ -45,13 +45,12 @@
 			</props>
 		</property>
 		
-<!-- 		<property name="eventListeners">
-        <map>
-            <entry key="save-update"><ref local="auditListener" /></entry>
-        </map>
-    </property>
+<!--  		<property name="eventListeners"> -->
+<!-- 	        <map> -->
+<!-- 	            <entry key="save-update"><ref bean="auditListener" /></entry> -->
+<!-- 	        </map> -->
+<!-- 	    </property> -->
 		
- -->		
 	</bean>
 
 	<bean id="transactionManager"

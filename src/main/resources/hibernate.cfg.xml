@@ -8,8 +8,9 @@
 
         <mapping class="com.common.model.Person" />
         
-        <event type="post-insert">
+        <event type="save-update">
           <listener class="com.common.audit.AuditListener"/>
+          <listener class="org.hibernate.event.def.DefaultSaveOrUpdateEventListener"/>
         </event>
 
    </session-factory>

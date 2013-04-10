@@ -3,8 +3,8 @@
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
   
-  <bean name="personService" class="com.common.service.PersonServiceDB"></bean>
   <bean name="personDAO" class="com.common.dao.PersonDAOImpl"></bean>
+  <bean name="personService" class="com.common.service.PersonServiceDB"></bean>
   
   <bean id="propertyConfigurer"
     class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
@@ -14,7 +14,5 @@
       </list>
     </property>
   </bean>  
-  
-   <import resource="db-config.xml" />
   
 </beans>

@@ -11,8 +11,6 @@ import javax.jws.WebMethod;
 import javax.jws.WebParam;
 import javax.jws.WebService;
 
-import org.springframework.stereotype.Service;
-
 import com.common.model.Person;
 
 /**
@@ -20,7 +18,6 @@ import com.common.model.Person;
  * @author Gaspar Rajoy - Flux IT
 
  **/
-@Service
 @WebService
 public interface PersonWebService {
  

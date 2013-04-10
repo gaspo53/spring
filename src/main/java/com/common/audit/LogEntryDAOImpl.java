@@ -20,6 +20,13 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 public class LogEntryDAOImpl extends GenericDAOImpl<LogEntry, Long> implements LogEntryDAO {
 
+	/**
+	 * @param sessionFactory the sessionFactory to set
+	 */
+	public void setSessionFactory(SessionFactory sessionFactory) {
+		this.sessionFactory = sessionFactory;
+	}
+
 	@Autowired
 	private SessionFactory sessionFactory;
 	
@@ -29,7 +36,7 @@ public class LogEntryDAOImpl extends GenericDAOImpl<LogEntry, Long> implements L
 		
 		System.out.println(sessionFactory);
 		sessionFactory.getCurrentSession().save(logEntry);
-//		
+		
 		return true;
 		
 //		return super.save(logEntry);

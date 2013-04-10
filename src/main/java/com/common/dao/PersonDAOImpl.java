@@ -10,6 +10,8 @@ package com.common.dao;
 
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Restrictions;
+import org.hibernate.event.EventListeners;
+import org.hibernate.impl.SessionFactoryImpl;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;

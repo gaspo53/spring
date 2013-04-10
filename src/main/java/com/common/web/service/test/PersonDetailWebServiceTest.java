@@ -7,12 +7,13 @@
  */
 package com.common.web.service.test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Service;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
@@ -26,32 +27,28 @@ import com.common.web.service.PersonWebService;
  **/
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = { "classpath*:**/mvc-dispatcher-serlvet.xml", 
-									"classpath*:**/db-config.xml", 
-									"classpath*:**/person-service.xml",
-									"classpath*:**/mail-servlet.xml", 
-									"classpath*:**/jms-setup.xml", 
-									"classpath*:**/web-services-definition.xml", 
-									"classpath*:**/web-services-clients-definition.xml"	})
+@ContextConfiguration(locations = {  
+									"classpath:spring/web-services-clients-definition.xml"	})
 
+@Service
+@Qualifier("personDetailWebServiceTest")
 public class PersonDetailWebServiceTest {
 
 	@Autowired
-	@Qualifier("personDetailServiceClient")
-	private PersonWebService personDetailService;
+	private PersonWebService personWebServiceClient;
 
 	/**
-	 * @param personDetailService
+	 * @param personWebService
 	 *            the personDetailService to set
 	 */
-	public void setPersonDetailService(PersonWebService personDetailService) {
-		this.personDetailService = personDetailService;
+	public void setPersonWebServiceClient(PersonWebService personWebService) {
+		this.personWebServiceClient = personWebService;
 	}
 
 	@Test
 	public void personDetailClientTest() {
 
-		Person person = personDetailService.personDetail("3");
+		Person person = personWebServiceClient.personDetail("1");
 		
 		assertEquals("Nombre de usuario","Gaspar",person.getName());
 	}

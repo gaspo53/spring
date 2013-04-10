@@ -31,7 +31,7 @@
 		<quartz.version>1.5.2</quartz.version>
 		<javax.jms>1.1</javax.jms>
 		<apache.activemq>5.7.0</apache.activemq>
-		<apache.cxf>2.7.3</apache.cxf>
+		<apache.cxf>2.6.3</apache.cxf>
 		<jaxws.spring>1.8</jaxws.spring>
 		<jackson.version>1.9.12</jackson.version>
 	</properties>
